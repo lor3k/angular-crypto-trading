@@ -1,0 +1,30 @@
+* {
+    font-family: Helvetica;
+    padding: 10px;
+}
+
+h2 { 
+    margin: 10px;
+}
+
+table, tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, .name {
+    background: darkgrey;
+    padding: 1em;
+}
+
+tr:nth-child(odd) {
+    background-color: lightgrey;
+}
+
+.green{
+    color: green;
+}
+
+.red{
+    color: red;
+}
