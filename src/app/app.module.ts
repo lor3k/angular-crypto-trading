@@ -18,8 +18,7 @@ registerLocaleData(localePl, 'pl');
     HttpClientModule
   ],
   providers: [
-    CoinsService,
-    { provide: LOCALE_ID, useValue: 'pl' }
+    CoinsService
   ],
   bootstrap: [AppComponent]
 })

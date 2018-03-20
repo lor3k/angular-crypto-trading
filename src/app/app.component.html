@@ -2,23 +2,25 @@
   <h2>
     Crypto Trading
   </h2>
-  <div>Ostatnia aktualizacja: {{dateStamp | date:'medium':'':'pl'}}</div>
+  <h4>Ostatnia aktualizacja: {{dateStamp | date:'medium':'':'pl'}}</h4>
   <table>
     <tr>
-      <th>Nazwa</th>
-      <th>Symbol</th>
-      <th>Cena</th>
-      <th>Kapitalizacja</th>
-      <th>Wolumen</th>
-      <th>Zmiana</th>
+      <th (click)="toggleSort(); sortValues('long')">Nazwa</th>
+      <th (click)="toggleSort(); sortValues('short')">Symbol</th>
+      <th (click)="toggleSort(); sortValues('price')">Cena</th>
+      <th (click)="toggleSort(); sortValues('mktcap')">Kapitalizacja</th>
+      <th (click)="toggleSort(); sortValues('volume')">Wolumen (24h)</th>
+      <th (click)="toggleSort(); sortValues('cap24hrChange')">Zmiana (24h)</th>
     </tr>
     <tr *ngFor="let coin of coins">
       <td class="name">{{coin.long}}</td>
       <td>{{coin.short}}</td>
-      <td>{{coin.price | currency:'':'':'0.4'}}</td>
-      <td>{{coin.mktcap | number:'1.0-0'}}</td>
-      <td>{{coin.volume | number:'1.0-0'}}</td>
-      <td><span [class]="setChangeColor(coin.cap24hrChange)">{{coin.cap24hrChange | number:'.2'}}</span></td>
+      <td class="right">{{coin.price | currency:'USD':'':'0.4'}}</td>
+      <td class="right">{{coin.mktcap | currency:'USD':'':'1.0-0'}}</td>
+      <td class="right">{{coin.volume | currency:'USD':'':'1.0-0'}}</td>
+      <td class="right">
+        <span [class]="setChangeColor(coin.cap24hrChange)">{{coin.cap24hrChange | number:'.2'}}%</span>
+      </td>
     </tr>
   </table>
 </div>

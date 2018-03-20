@@ -1,24 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&subset=latin-ext');
+
 * {
-    font-family: Helvetica;
-    padding: 10px;
+    font-family: 'Roboto Mono', monospace;
 }
 
-h2 { 
-    margin: 10px;
-}
-
-table, tr {
+table, tr, .name {
     border: 1px solid black;
     border-collapse: collapse;
+    background-color: #bbb;
+}
+td {
+    padding: 0.7em;
 }
 
-th, .name {
-    background: darkgrey;
+.right{
+    text-align: right;
+}
+
+th{
+    background: #aaa;
     padding: 1em;
+    cursor: pointer;
+    transition: 0.5s;
 }
 
-tr:nth-child(odd) {
-    background-color: lightgrey;
+th:hover{
+    background: #ccc;
+}
+
+tr:nth-child(even) {
+    background-color: #ccc;
 }
 
 .green{

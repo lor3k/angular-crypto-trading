@@ -1,5 +1,5 @@
-* {
-    margin: 0;
-    padding: 0;
-    background-color: #ccc;
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #ddd;
 }
