@@ -6,12 +6,12 @@
 	<h5>{{this.message}}</h5>
 	<table>
 		<tr>
-			<th (click)="toggleSort(); sortValues('long')">Nazwa</th>
-			<th (click)="toggleSort(); sortValues('short')">Symbol</th>
-			<th (click)="toggleSort(); sortValues('price')">Cena</th>
-			<th (click)="toggleSort(); sortValues('mktcap')">Kapitalizacja</th>
-			<th (click)="toggleSort(); sortValues('volume')">Wolumen (24h)</th>
-			<th (click)="toggleSort(); sortValues('cap24hrChange')">Zmiana (24h)</th>
+			<th (click)="toggleSort('long')">Nazwa</th>
+			<th (click)="toggleSort('short')">Symbol</th>
+			<th (click)="toggleSort('price')">Cena</th>
+			<th (click)="toggleSort('mktcap')">Kapitalizacja</th>
+			<th (click)="toggleSort('volume')">Wolumen (24h)</th>
+			<th (click)="toggleSort('cap24hrChange')">Zmiana (24h)</th>
 		</tr>
 		<tr *ngFor="let coin of coins">
 			<td class="name">{{coin.long}}</td>

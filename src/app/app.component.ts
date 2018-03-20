@@ -24,16 +24,17 @@ export class AppComponent implements OnInit {
 					this.message = `Serwer nie odpowiada. Prosimy o cierpliwość.`;
 					return;
 				}
-				this.message = '';
 				this.coins = coins;
 				this.sortValues();
+				this.message = '';
 				this.dateStamp = this.coinsService.lastFetchDateStamp;
 				console.log(`fetched coins - ${this.dateStamp}`);
 			});
 	}
 
-	toggleSort(): void {
+	toggleSort(value: string): void {
 		this.sortType.asc = !this.sortType.asc;
+		this.sortValues(value);
 	}
 
 	sortValues(value: string = this.sortType.value): void {
