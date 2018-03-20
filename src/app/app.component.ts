@@ -13,14 +13,22 @@ export class AppComponent implements OnInit {
 	private dateStamp: Date;
 	private isChanged: string;
 	private sortType: { value: string, asc: boolean };
+	private message: string;
 
 	constructor(private coinsService: CoinsService) { }
 
 	getCoins(): void {
 		this.coinsService.getCoins()
 			.subscribe(coins => {
+				if (!coins.length) {
+					this.message = `Serwer nie odpowiada. Prosimy o cierpliwość.`;
+					return;
+				}
+				this.message = '';
 				this.coins = coins;
 				this.sortValues();
+				this.dateStamp = this.coinsService.lastFetchDateStamp;
+				console.log(`fetched coins - ${this.dateStamp}`);
 			});
 	}
 
@@ -52,11 +60,8 @@ export class AppComponent implements OnInit {
 	ngOnInit() {
 		this.sortType = { value: 'mktcap', asc: false };
 		this.getCoins();
-		this.dateStamp = new Date();
-
 		setInterval(() => {
 			this.getCoins();
-			this.dateStamp = new Date();
 		}, 15000);
 	}
 }
